@@ -1,0 +1,24 @@
+@import '~normalize.css';
+@import 'variables';
+@import 'colors';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: $grey;
+    display:block;
+}
+
+img {
+    display:block;
+    max-width: 100%;
+    height: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+// import components
+@import '../app/components/home/home'

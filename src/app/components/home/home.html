@@ -1,0 +1,70 @@
+<div class="main-wrapper">
+    <header>
+        <div class="header text-right">
+            <small ng-if="homeCtrl.connectedUsers > 0">Currently {{homeCtrl.connectedUsers}} users.</small>
+        </div>
+    </header>
+    
+<div class="container" ng-if="!homeCtrl.user">
+    <div class="row vertical-offset-100">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading panel-teal">
+                    <h3 class="panel-title">Please sign in</h3>
+                </div>
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Username" name="username" type="text"
+                                ng-keypress="homeCtrl.onKeyPress($event, 'login')"
+                                ng-model="homeCtrl.username">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="password" type="password"
+                                ng-keypress="homeCtrl.onKeyPress($event, 'login')"
+                                ng-model="homeCtrl.password">
+                        </div>
+                        <button class="btn btn-lg btn-default btn-block"
+                            ng.disabled="homeCtrl.loggingIn"
+                            ng-click="homeCtrl.setLogin()">
+                            <span ng-if="!homeCtrl.loggingIn">Login</span>
+                            <span ng-if="homeCtrl.loggingIn">Login in...</span>
+                        </button>
+                        <div class="alert alert-danger" ng-if="homeCtrl.error">{{homeCtrl.error}}</div>
+                    </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="panel panel-default" ng-if="homeCtrl.user">
+            <div class="panel-body">
+                <div class="container" scroll-bottom="homeCtrl.messages" >
+                    <div class="row message-bubble" ng-repeat="message in homeCtrl.messages">
+                    <p class="text-muted">{{message.username}}</p>
+                        <span>{{message.message}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <footer ng-if="homeCtrl.user">
+        <div class="chat-container">
+            <div class="panel-footer panel-footer__full">
+                 <div class="input-group">
+                  <input type="text" class="form-control"
+                    ng-keypress="homeCtrl.onKeyPress($event, 'send message')"
+                    ng-model="homeCtrl.newMessage"
+                    focus-if="homeCtrl.user">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"
+                        ng-click="homeCtrl.sendMessage()">Send</button>
+                  </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

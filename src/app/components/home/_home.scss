@@ -1,0 +1,68 @@
+@import 'src/stylesheets/variables';
+@import 'src/stylesheets/colors';
+
+.header {
+    background-color: $teal;
+    height: 20px;
+
+    small {
+        color: $white;
+    }
+}
+
+.home-container {
+
+    min-height: 500px;
+    margin-top:20px;
+}
+
+footer {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $athensGrey;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.vertical-offset-100 {
+    padding-top: 100px;
+}
+
+.chat-container {
+    display: flex;
+    text-align: center;
+    //color: $athensGrey;
+    font-size: 1em;
+    width: 100%;
+}
+
+
+.panel-body { padding: 0px; }
+
+.panel.panel-default {
+    margin-bottom: 55px;
+}
+
+.panel-heading.panel-teal {
+    background-color: $teal;
+    color: white;
+}
+
+.panel-footer__full {
+    width: 100%;
+}
+
+.message-bubble
+{
+    padding: 10px 0px 10px 0px;
+}
+
+.message-bubble:nth-child(even) { background-color: #F5F5F5; }
+
+.message-bubble > *
+{
+    padding-left: 10px;
+}
